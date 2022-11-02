@@ -13,8 +13,8 @@ import java.util.Arrays;
 	2) String 기능 (메소드)
 	   ----------
 	   1. 문자 변환
-	   		1) toUpperCase : 대문자 변환
-	   		2) toLowerCase : 소문자 변환
+	   		1) toUpperCase : 대문자 변환 ===> 대소문자 구분없이 검색
+	   		2) toLowerCase : 소문자 변환 ===> 대소문자 구분없이 검색
 	   *****3) valueOf : 모든 데이터형을 문자열로 변경
 	   					 int a = 10;
 	   					 valueOf(a) ==> "10" ==> parseInt("10") ==> 10
@@ -42,12 +42,12 @@ import java.util.Arrays;
 	   		4) endsWith : 끝나는 단어
 	   		   ------------------------------------------- 검색기
 	   5. 문자 찾기
-	   	 ***1) indexOf : 앞에서부터 데이터 찾기
+	   	 ***1) indexOf : 앞에서부터 데이터의 위치값(숫자) 찾기
 	   					String s = "Hello Java"
-	   					s.indexOf("a");		===> J'a'va
-	   		2) lastIndexOf : 뒤에서부터 데이터 찾기 
+	   					s.indexOf("a");		===> J'a'va	: 7
+	   		2) lastIndexOf : 뒤에서부터 데이터의 위치값(숫자) 찾기 
 	   					String s = "Hello Java"
-	   					s.lastIndexOf("a"); ===> Jav'a'
+	   					s.lastIndexOf("a"); ===> Jav'a'	: 9
 	   6. 기타
 	   		concat("a","b") ==> ab ==> + 연산자로 대신
 	   								  "a"+"b" ==> "ab"
@@ -55,7 +55,9 @@ import java.util.Arrays;
 	   		toCharArray() ==> 문자열을 문자배열(char[])로 변경
 	   		
 	   ------------------------------------------------------- 라이브러리 공부 : 1.기능 2.용도 3.사용처		
-	   		
+	   		라이브러리	1. 메소드명(기능)
+	   				2. 매개변수(어떤 값을 넣을지)
+	   				3. 리턴형(어떤 값을 받아올지)
 */
 public class 문자열_1 {
 
@@ -78,7 +80,7 @@ public class 문자열_1 {
 		 * 
 		 */
 		// 2. 초기화
-		msg = " Hello Java ";	//선언과 초기화를 따로 하는 경우 : 입력값을 받거나, 파일을 읽을 때 등...
+		msg = "Hello Java";	//선언과 초기화를 따로 하는 경우 : 입력값을 받거나, 파일을 읽을 때 등...
 		
 		// 3. 활용(요청처리)
 		//	1) 문자의 개수 확인 (length())	==> PW는 8자 이상, 댓글 200자 제한, MMS 전환
@@ -87,6 +89,35 @@ public class 문자열_1 {
 		//	2) 공백을 제거
 		System.out.println(msg.trim().length()); 	// 좌우에 있는 공백만 제거가 가능
 		
+		//	3) 대문자로 변환
+		System.out.println(msg.toUpperCase());		// 검색
+		//	4) 소문자로 변환
+		System.out.println(msg.toLowerCase());		// 검색
+		// 한글 검색시 초성만으로 자동완성 기능을 어떻게 만들 수 있는지 ==> 메소드
+		
+		//	5) 자르기 substring()
+		/*
+		 * 		substring(int start) => 지정된 위치부터
+		 * 		substring(int start, int end) => 어디서부터 어디 전까지 중간을 자름
+		 * 
+		 * 		확장자를 가져올 때 등
+		 */
+		System.out.println(msg.substring(6));
+		System.out.println(msg.substring(0,5)); // end 위치는 제외함
+		
+				String post = "101-123";
+				System.out.println(post.substring(0,3));
+				System.out.println(post.substring(4));
+				
+				String fileName = "문자열_1.java";
+				System.out.println(fileName.substring(6));
+				// 확장자가 필요할 때마다 글자 수를 세어야 한다는 단점 ==> indexOf
+				// 파일명 중간에 .이 들어갈 수 있음 ==> lastIndexOf
+				System.out.println(fileName.substring(fileName.lastIndexOf(".")+1));
+		
+		System.out.println(msg.indexOf("o"));
+		System.out.println(msg.indexOf("a"));
+		System.out.println(msg.lastIndexOf("a"));
 		
 		// 4. 출력
 

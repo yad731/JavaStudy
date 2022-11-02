@@ -643,10 +643,10 @@ public class 문자열배열_3 {
          */
         for(int i=0; i<title.length; i++)
         {
-        	if(j<rowSize && i>=pagecnt)	// ***페이지 나누기
+        	if(j<rowSize && i>=pagecnt)	// ***페이지 나누기 // i는 이전 페이지들을 스킵하고 그 이후의 10개를 출력하기 위한 역할
         	{
         		System.out.println((i+1)+"."+title[i]+"---- "+singer[i]+"  ["+album[i]+"]");
-        		j++;
+        		j++;		// 10개인지 아닌지 감시하는 역할
         	}
         }
         

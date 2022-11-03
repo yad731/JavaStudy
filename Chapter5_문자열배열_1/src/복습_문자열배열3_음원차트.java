@@ -1,7 +1,7 @@
 import java.util.Scanner;
-public class 문자열배열_3 {
-	
-	public static void main(String[] args) {
+public class 복습_문자열배열3_음원차트 {
+
+public static void main(String[] args) {
 		
 		String[] title={
         		"That That (Prod. & Feat. SUGA of BTS)",
@@ -610,49 +610,39 @@ public class 문자열배열_3 {
         		"하루만 더",
         		"Hollywood's Bleeding"
         };
-		
-        // 데이터 저장 ==> File
-		Scanner scan = new Scanner(System.in);
-		// 페이지 나누기
-		int curpage = 1;
-		int totalpage = (int)(Math.ceil(title.length/10.0));
-//*****	// ceil ==> 올림 함수
-		// 총 개수 ==> 24 ==> 24/10 ==> 2+1 	10 10 4
-        //					24/10.0 ==> 2.4 ==> 3
-		System.out.print("페이지 입력(1~"+totalpage+") : ");
-		curpage = scan.nextInt();
-		
-		System.out.println(curpage+" page / "+totalpage+" pages");
-        System.out.println("========== "+curpage+"page ==========");
-        System.out.println();
         
-        int j = 0;	// 10개씩 나누는 변수
-        int rowSize = 10;	// 한 페이지에 출력하는 개수
-        // *** 인덱스의 시작 위치 잡는 법
-        int pagecnt = (curpage*rowSize)-rowSize;	// 인덱스의 시작 위치 (0,10,20...)
-        /*
-          	1page
-          	0
-          	..
-          	9
-          	
-          	2page
-          	10
-          	..
-          	19
-         */
+        Scanner scan = new Scanner(System.in);
+        int curpage = 1;
+        int totalpage = (int)(Math.ceil(title.length/10.0));
+        
+        System.out.println("페이지를 입력하세요 : ");
+        curpage = scan.nextInt();
+        System.out.println(curpage+"page / "+totalpage+"pages");
+        System.out.println("================ "+curpage+"page ================");
+        
+        int j = 0;
+        int rowSize = 10;
+        int pagecnt = (curpage*rowSize)-rowSize;
+        
         for(int i=0; i<title.length; i++)
         {
-        	if(j<rowSize && i>=pagecnt)	// ***페이지 나누기 // i는 이전 페이지들을 스킵하고 그 이후의 10개를 출력하기 위한 역할
+        	if(j<rowSize && i>pagecnt)
         	{
-        		System.out.println((i+1)+"."+title[i]+"---- "+singer[i]+"  ["+album[i]+"]");
-        		j++;		// 10개인지 아닌지 감시하는 역할
+        		System.out.println((i+1)+"."+title[i]+"___"+singer[i]+"  ["+album[i]+"]");
+        		j++;
         	}
         }
         
-		
+
+
+
+
+
 	}
 }
+
+
+
 
 
 

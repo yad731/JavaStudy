@@ -73,6 +73,7 @@ public class MainClass extends JFrame implements ActionListener {
 			try
 			{
 				int m = Integer.parseInt(input);
+
 			}catch(Exception ex) {
 				// 복구
 				JOptionPane.showMessageDialog(this, "세자리 정수 입력");
@@ -81,6 +82,7 @@ public class MainClass extends JFrame implements ActionListener {
 				return;
 			}
 		}
+		
 	}
 }
 
